@@ -35,12 +35,9 @@
 
   <!-- Comments Area -->
           {{ ckeditor.load() }}
-          {% if current_user.is_authenticated %}
+          {{ ckeditor.config(name='body') }}
+          {{ wtf.quick_form(form, novalidate=True, button_map={'submit': 'primary'})}}
 
-            {{ ckeditor.config(name='body') }}
-            {{ wtf.quick_form(form, novalidate=True, button_map={'submit': 'primary'})}}
-
-          {% elif %}
           
           <div class="col-lg-8 col-md-10 mx-auto comment">
             {% for comment in post.comments %}
